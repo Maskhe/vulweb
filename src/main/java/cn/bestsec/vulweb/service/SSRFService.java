@@ -1,6 +1,11 @@
 package cn.bestsec.vulweb.service;
 
 import cn.bestsec.vulweb.utils.HttpClientUtil;
+import okhttp3.*;
+import org.apache.hc.client5.http.ssl.NoopHostnameVerifier;
+import org.apache.hc.core5.ssl.SSLContexts;
+import org.apache.hc.core5.ssl.TrustStrategy;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,7 +18,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Service;
 
+import javax.net.ssl.SSLContext;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -117,6 +124,63 @@ public class SSRFService {
         }catch (Exception e){
             return e.getMessage();
         }
-
     }
+
+    public String level7(String url){
+        // 创建 OkHttpClient 实例
+        OkHttpClient client = new OkHttpClient();
+
+        String responseBodyString = "未获取到响应";
+
+        try {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                ResponseBody responseBody = response.body();
+                if (responseBody != null) {
+                    responseBodyString = responseBody.string();
+                }
+            } else {
+                System.out.println("Request failed with code: " + response.code());
+            }
+
+            // 关闭响应体
+            response.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return responseBodyString;
+    }
+
+    public String level8(String url){
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url) // 指定要访问的 URL
+                .build();
+
+        // 异步执行请求
+        Call call = client.newCall(request);
+        call.enqueue(new okhttp3.Callback() {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    System.out.println("Response Body: " + responseBody);
+                } else {
+                    System.out.println("Request failed with code: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return "异步请求已发出";
+    }
+    // todo: okhttp3 以下版本的包名不一样，需要再次确认hook点，okhttp4采用kotlin语言开发，也需要找解决方案。
+
+
 }

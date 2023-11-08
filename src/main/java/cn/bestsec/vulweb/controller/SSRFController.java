@@ -1,6 +1,7 @@
 package cn.bestsec.vulweb.controller;
 
 import cn.bestsec.vulweb.service.SSRFService;
+import cn.bestsec.vulweb.service.SSRFService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class SSRFController {
 
     private final SSRFService ssrfService;
+    private final SSRFService2 ssrfService2;
     @Autowired
-    public SSRFController(SSRFService ssrfService) {
+    public SSRFController(SSRFService ssrfService, SSRFService2 ssrfService2) {
         this.ssrfService = ssrfService;
+        this.ssrfService2 = ssrfService2;
     }
 
     @RequestMapping("/level1")
@@ -45,5 +48,20 @@ public class SSRFController {
     @RequestMapping("/level6")
     public String level6(String p){
         return ssrfService.level6(p);
+    }
+
+    @RequestMapping("/level7")
+    public String level7(String p){
+        return ssrfService.level7(p);
+    }
+
+    @RequestMapping("/level8")
+    public String level8(String p){
+        return ssrfService.level8(p);
+    }
+
+    @RequestMapping("/level9")
+    public String level9(String p){
+        return ssrfService2.level9(p);
     }
 }
