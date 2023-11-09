@@ -29,9 +29,7 @@ public class SSRFController {
     }
 
     @RequestMapping("/level3")
-    public String level3(String p) throws ClassNotFoundException {
-        Class<?> cl = Class.forName("org.apache.http.HttpRequest");
-
+    public String level3(String p) {
         return ssrfService.level3(p);
     }
 
@@ -63,5 +61,25 @@ public class SSRFController {
     @RequestMapping("/level9")
     public String level9(String p){
         return ssrfService2.level9(p);
+    }
+
+    @RequestMapping("/level10")
+    public String level10(String p){
+        return ssrfService2.level10(p);
+    }
+
+    @RequestMapping("/level11")
+    public String level11(String p){
+        return ssrfService2.level11(p);
+    }
+
+    @RequestMapping("/level12")
+    public String level12(String p){
+        return ssrfService2.level12(p);
+    }
+
+    @RequestMapping("/level13")
+    public String level13(String p){
+        return ssrfService2.level13(p);
     }
 }

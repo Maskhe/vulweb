@@ -75,6 +75,9 @@ public class SSRFService {
     }
 
     public String level3(String url){
+        /*
+        httpclient
+         */
         try(CloseableHttpClient httpClient = HttpClients.createDefault()){
             HttpGet httpGet = new HttpGet(url);
             CloseableHttpResponse response = httpClient.execute(httpGet);
@@ -90,7 +93,7 @@ public class SSRFService {
          */
         try(CloseableHttpClient httpClient = HttpClients.createDefault()){
             HttpPost httpPost = new HttpPost(url);
-            httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36");
+//            httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36");
             CloseableHttpResponse response = httpClient.execute(httpPost);
             return EntityUtils.toString(response.getEntity(), "utf-8");
         }catch(Exception e){
@@ -114,6 +117,9 @@ public class SSRFService {
     }
 
     public String level6(String url){
+        /*
+        httpclient get请求，带参数
+         */
         try{
             HttpClient connection = HttpClientUtil.getConnection();
             HttpUriRequest request = HttpClientUtil.getRequestMethod(new HashMap<String, String>(){{put("p", "123");}}, url, "get");
@@ -127,11 +133,11 @@ public class SSRFService {
     }
 
     public String level7(String url){
-        // 创建 OkHttpClient 实例
+        /*
+        okhttp3 同步get请求
+         */
         OkHttpClient client = new OkHttpClient();
-
         String responseBodyString = "未获取到响应";
-
         try {
             Request request = new Request.Builder()
                     .url(url)
@@ -145,16 +151,17 @@ public class SSRFService {
             } else {
                 System.out.println("Request failed with code: " + response.code());
             }
-
-            // 关闭响应体
             response.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            return e.toString();
         }
         return responseBodyString;
     }
 
     public String level8(String url){
+        /*
+        okhttp3 异步get请求
+         */
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url) // 指定要访问的 URL
@@ -180,7 +187,7 @@ public class SSRFService {
         });
         return "异步请求已发出";
     }
-    // todo: okhttp3 以下版本的包名不一样，需要再次确认hook点，okhttp4采用kotlin语言开发，也需要找解决方案。
+    // todo: okhttp4采用kotlin语言开发，也需要找解决方案。
 
 
 }
