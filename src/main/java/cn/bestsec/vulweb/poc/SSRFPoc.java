@@ -9,7 +9,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import javax.persistence.Entity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;

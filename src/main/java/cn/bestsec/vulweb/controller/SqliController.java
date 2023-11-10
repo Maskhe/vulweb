@@ -11,10 +11,10 @@ import java.util.List;
 @RequestMapping("/sqli")
 public class SqliController {
 
-    @Autowired
-    private SqliService sqliService;
+    private final SqliService sqliService;
 
-    public SqliController() throws SQLException {
+    public SqliController(SqliService sqliService) throws SQLException {
+        this.sqliService = sqliService;
     }
 
     @RequestMapping("/level1")
