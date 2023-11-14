@@ -155,7 +155,7 @@ public class SSRFServiceImpl implements SSRFService {
                     responseBodyString = responseBody.string();
                 }
             } else {
-                System.out.println("Request failed with code: " + response.code());
+                responseBodyString = "Request failed with code: " + response.code();
             }
             response.close();
         } catch (Exception e) {
