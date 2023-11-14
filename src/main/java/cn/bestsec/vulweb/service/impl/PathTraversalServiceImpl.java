@@ -100,6 +100,7 @@ public class PathTraversalServiceImpl implements PathTraversalService {
         return content;
     }
 
+    // todo: 任意文件写入漏洞的poc编写，可以写静态文件目录，通过读取静态文件的方式进行验证，前提是需要知道静态文件目录
     @Override
     public String level6(String path) {
         String data = "写入的内容";

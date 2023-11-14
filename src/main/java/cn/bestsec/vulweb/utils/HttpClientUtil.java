@@ -19,6 +19,11 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @author hjxin
+ * @since 2023/11/3
+ * httpclient工具类，封装了httpclient
+ */
 public class HttpClientUtil {
 
     private static PoolingHttpClientConnectionManager connectionManager = null;
@@ -66,17 +71,17 @@ public class HttpClientUtil {
         HttpUriRequest reqMethod = null;
         if ("post".equals(method)) {
             reqMethod = RequestBuilder.post().setUri(url)
-                    .addParameters(params.toArray(new BasicNameValuePair[params.size()]))
+                    .addParameters(params.toArray(new NameValuePair[params.size()]))
                     .setConfig(requestConfig).build();
         } else if ("get".equals(method)) {
             reqMethod = RequestBuilder.get().setUri(url)
-                    .addParameters(params.toArray(new BasicNameValuePair[params.size()]))
+                    .addParameters(params.toArray(new NameValuePair[params.size()]))
                     .setConfig(requestConfig).build();
         }
         return reqMethod;
     }
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
         Map<String, String> map = new HashMap<String, String>();
         map.put("account", "");
         map.put("password", "");

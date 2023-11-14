@@ -2,15 +2,12 @@ package cn.bestsec.vulweb.poc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -18,6 +15,11 @@ import java.util.Random;
 import static cn.bestsec.vulweb.utils.HttpClientUtil.getConnection;
 import static cn.bestsec.vulweb.utils.HttpClientUtil.getRequestMethod;
 
+/**
+ * @author hjxin
+ * @since 2023/11/10
+ * SSRF漏洞验证代码
+ */
 @Slf4j
 public class SSRFPoc {
     public static void main(String[] args) throws IOException {
