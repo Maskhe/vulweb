@@ -11,12 +11,14 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
-import org.apache.hc.core5.ssl.SSLContexts;
-import org.apache.hc.core5.ssl.TrustStrategy;
 import org.springframework.stereotype.Service;
 
-import javax.net.ssl.SSLContext;
 import java.io.IOException;
+
+/**
+ * @author hjxin
+ * @since 2023/11/10
+ */
 
 @Service
 public class SSRFService2Impl implements SSRFService2 {
@@ -27,15 +29,6 @@ public class SSRFService2Impl implements SSRFService2 {
          */
         String responseContent = "";
         try {
-            SSLContext sslContext = SSLContexts.custom()
-                    .loadTrustMaterial(new TrustStrategy() {
-                        @Override
-                        public boolean isTrusted(java.security.cert.X509Certificate[] chain, String authType) {
-                            return true;
-                        }
-                    })
-                    .build();
-
             CloseableHttpClient httpClient = HttpClients.custom()
                     .build();
             HttpGet httpGet = new HttpGet(url);
@@ -45,7 +38,6 @@ public class SSRFService2Impl implements SSRFService2 {
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     responseContent = EntityUtils.toString(entity);
-                    System.out.println(responseContent);
                 }
             } finally {
                 response.close();
@@ -62,7 +54,7 @@ public class SSRFService2Impl implements SSRFService2 {
         /*
         httpclient5 fluent api写法
          */
-        String result = null;
+        String result;
         try {
             Response response = Request.get(url).execute();
             result = response.returnContent().asString();
