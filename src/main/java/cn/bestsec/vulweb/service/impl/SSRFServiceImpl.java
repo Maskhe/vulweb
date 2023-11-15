@@ -31,12 +31,20 @@ import java.util.HashMap;
 
 @Service
 public class SSRFServiceImpl implements SSRFService {
+    public String source(String url){
+        return url;
+    }
+    public void evil(String url){
+        System.out.println(url);
+    }
     @Override
     public String level1(String url){
         /*
         HttpURLConnection
          */
         try{
+
+            evil(source(url));
             URL uri = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) uri.openConnection();
             connection.setRequestMethod("GET");
