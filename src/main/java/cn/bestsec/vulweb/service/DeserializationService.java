@@ -10,5 +10,19 @@ public interface DeserializationService {
      * @param file 文件路径
      * @return 反序列化执行情况
      */
-    public String level1(String file);
+    String level1(String file);
+
+    /**
+     * 从指定url地址读取数据流并进行反序列化
+     * @param url url地址
+     * @return String 反序列化执行情况
+     */
+    String level2(String url);
+
+    /**
+     * 从指定host读取tcp数据流并进行反序列化
+     * @param host 主机地址，eg: localhost、127.0.0.1
+     * @return String 反序列化执行情况
+     */
+    String level3(String host);
 }

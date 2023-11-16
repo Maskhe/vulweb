@@ -13,20 +13,20 @@ public interface CommandExecService {
      * @param cmd 命令
      * @return 命令执行结果
      */
-    public String level1(String cmd);
+    String level1(String cmd);
 
     /**
      * ProcessBuilder执行命令并获取结果
      * @param cmd 命令
      * @return 命令执行结果
      */
-    public String level2(String cmd);
+    String level2(String cmd);
 
     /**
      * Apache Commons Exec 执行命令并获取结果
      * @param cmd 命令
      * @return 命令执行结果
      */
-    public String level3(String cmd);
+    String level3(String cmd);
 
 }
