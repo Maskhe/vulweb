@@ -5,10 +5,14 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Method;
 
+/**
+ * @author hjxin
+ * @since 2023/11/14
+ */
 @Service
 public class UnsafeReflectionServiceImpl implements UnsafeReflectionService {
     @Override
-    public String level1(String className, String arg) {
+    public String invoke(String className, String arg) {
         try {
             // 使用反射加载类
             Class<?> clazz = Class.forName(className);

@@ -12,5 +12,5 @@ public interface UnsafeReflectionService {
      * @param arg toString方法接受的参数
      * @return
      */
-    String level1(String className, String arg);
+    String invoke(String className, String arg);
 }

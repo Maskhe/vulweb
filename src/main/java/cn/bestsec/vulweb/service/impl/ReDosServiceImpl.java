@@ -14,7 +14,7 @@ import java.util.regex.PatternSyntaxException;
 @Service
 public class ReDosServiceImpl implements ReDosService {
     @Override
-    public String level1(String content) {
+    public String patternMatcher(String content) {
         String maliciousRegex = "(a+)+";
 
         // 输入字符串，包含大量的 'a'

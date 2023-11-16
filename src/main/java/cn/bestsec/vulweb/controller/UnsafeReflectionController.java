@@ -14,6 +14,6 @@ public class UnsafeReflectionController {
 
     @RequestMapping("/level1")
     public String level1(String className, String arg){
-        return service.level1(className, arg);
+        return service.invoke(className, arg);
     }
 }

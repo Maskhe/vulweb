@@ -16,7 +16,7 @@ import java.net.URL;
 public class DeserializationServiceImpl implements DeserializationService {
 
     @Override
-    public String level1(String file) {
+    public String fileDeserialize(String file) {
         try (FileInputStream fileInputStream = new FileInputStream(file)){
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             Object obj = objectInputStream.readObject();
@@ -27,7 +27,7 @@ public class DeserializationServiceImpl implements DeserializationService {
     }
 
     @Override
-    public String level2(String url) {
+    public String httpDeserialize(String url) {
         try{
             URL uri = new URL(url);
             HttpURLConnection urlConnection = (HttpURLConnection) uri.openConnection();
@@ -46,7 +46,7 @@ public class DeserializationServiceImpl implements DeserializationService {
     }
 
     @Override
-    public String level3(String host) {
+    public String tcpDeserialize(String host) {
         int serverPort = 8888; // 服务器端口
 
         try {

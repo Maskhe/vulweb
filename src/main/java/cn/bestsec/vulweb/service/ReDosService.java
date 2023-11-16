@@ -11,5 +11,5 @@ public interface ReDosService {
      * @param content 用户输入
      * @return 正则表达式执行状态
      */
-    public String level1(String content);
+    public String patternMatcher(String content);
 }

@@ -14,6 +14,6 @@ public class ReDosController {
     }
     @RequestMapping("/level1")
     public String level1(String p){
-        return service.level1(p);
+        return service.patternMatcher(p);
     }
 }

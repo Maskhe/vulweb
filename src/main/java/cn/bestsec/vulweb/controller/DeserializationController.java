@@ -15,16 +15,16 @@ public class DeserializationController {
     }
     @RequestMapping("/level1")
     public String level1(String p){
-        return deserializationService.level1(p);
+        return deserializationService.fileDeserialize(p);
     }
 
     @RequestMapping("/level2")
     public String level2(String p){
-        return deserializationService.level2(p);
+        return deserializationService.httpDeserialize(p);
     }
 
     @RequestMapping("/level3")
     public String level3(String p){
-        return deserializationService.level3(p);
+        return deserializationService.tcpDeserialize(p);
     }
 }
