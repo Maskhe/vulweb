@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+    <sources>
+        <method id="" type="" signature="" target="" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getInputStream()" target="R" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getParameter(java.lang.String)" target="R" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterNames()" target="R" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterValues(java.lang.String)" target="R" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterMap()" target="R" inherit="subclasses" tags=""/>
+        <method id="" type="" signature="javax.servlet.ServletRequest.getReader()" target="R" inherit="subclasses" tags=""/>
+    </sources>
+    <propagators>
+
+    </propagators>
+</policies>

@@ -43,7 +43,7 @@ public class SSRFServiceImpl implements SSRFService {
         HttpURLConnection
          */
         try{
-            System.out.println(this.getClass().getClassLoader());
+            url = source(url);
             evil(source(url));
             URL uri = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) uri.openConnection();
