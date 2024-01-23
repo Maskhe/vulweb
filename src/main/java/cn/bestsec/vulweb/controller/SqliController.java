@@ -106,4 +106,9 @@ public class SqliController {
     public String level18(String p) {
         return sqliService.level18(p);
     }
+
+    @RequestMapping("/level19")
+    public String level19(String p) {
+        return sqliService.level19(p);
+    }
 }

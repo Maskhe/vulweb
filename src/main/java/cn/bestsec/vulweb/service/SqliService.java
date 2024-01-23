@@ -2,6 +2,11 @@ package cn.bestsec.vulweb.service;
 
 import java.util.List;
 
+/**
+ * sql注入漏洞代码
+ * @author hjx
+ * @since 2023/11/10
+ */
 public interface SqliService {
     String level1(String p);
 
@@ -38,4 +43,11 @@ public interface SqliService {
     String level17(String p);
 
     String level18(String p);
+
+    /**
+     * jpa createNativeQuery方法执行sql语句
+     * @param p 用户输入
+     * @return 数据库查询结果
+     */
+    String level19(String p);
 }

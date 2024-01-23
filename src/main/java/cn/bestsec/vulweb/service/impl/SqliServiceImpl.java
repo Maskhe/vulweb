@@ -2,7 +2,7 @@ package cn.bestsec.vulweb.service.impl;
 
 
 import cn.bestsec.vulweb.dao.BookDao;
-import cn.bestsec.vulweb.entity.Book;
+import cn.bestsec.vulweb.entity.BookDO;
 import cn.bestsec.vulweb.entity.User;
 import cn.bestsec.vulweb.dao.UserDao;
 import cn.bestsec.vulweb.service.SqliService;
@@ -207,7 +207,7 @@ public class SqliServiceImpl implements SqliService {
         /*
         spring data jpa不存在漏洞
          */
-        Optional<Book> book = bookDao.findById(p);
+        Optional<BookDO> book = bookDao.findById(p);
         return book.toString();
     }
 
@@ -216,7 +216,7 @@ public class SqliServiceImpl implements SqliService {
         /*
         spring data jpa不存在漏洞
          */
-        Book book = bookDao.getBookByBookName(p);
+        BookDO book = bookDao.getBookByBookName(p);
         if(book != null){
             return book.toString();
         }
@@ -228,7 +228,7 @@ public class SqliServiceImpl implements SqliService {
         /*
         spring data jpa无漏洞
          */
-        Book book = bookDao.getBookByName2(p);
+        BookDO book = bookDao.getBookByName2(p);
         if (book != null){
             return book.toString();
         }
@@ -240,17 +240,28 @@ public class SqliServiceImpl implements SqliService {
         /*
         spring data jpa存在漏洞
          */
-        String sql = "select b from Book b where b.authorName='" + p + "'";
-        System.out.println(sql);
+        String sql = "select b from BookDO b where b.authorName='" + p + "'";
         Query query = entityManager.createQuery(sql);
-        Book book;
+        BookDO book;
         try {
-            book = (Book) query.getSingleResult();
+            book = (BookDO) query.getSingleResult();
         } catch (Exception e) {
             return e.getMessage();
         }
 
         return book.toString();
+    }
 
+    @Override
+    public String level19(String p) {
+        String sql = "select * from books where author_name = '" + p + "'";
+        Query query = entityManager.createNativeQuery(sql);
+        BookDO book;
+        try {
+            book = (BookDO) query.getSingleResult();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        return book.toString();
     }
 }
