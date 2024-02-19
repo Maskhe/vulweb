@@ -1,0 +1,53 @@
+<policies>
+    <sources>
+        <method id="spring-get-arg-1" signature="org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(org.springframework.core.MethodParameter, org.springframework.web.method.support.ModelAndViewContainer, org.springframework.web.context.request.NativeWebRequest, org.springframework.web.bind.support.WebDataBinderFactory)"  target="R"  enabled="true"/>
+        <!-- httpservlet获取入参 -->
+        <method id="servletrequest-1" signature="javax.servlet.ServletRequest.getInputStream()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-2" signature="javax.servlet.ServletRequest.getParameter(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-3" signature="javax.servlet.ServletRequest.getParameterNames()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-4" signature="javax.servlet.ServletRequest.getParameterValues(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-5" signature="javax.servlet.ServletRequest.getParameterMap()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-6" signature="javax.servlet.ServletRequest.getReader()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-1" signature="javax.servlet.http.HttpServletRequest.getCookies()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-2" signature="javax.servlet.http.HttpServletRequest.getHeader(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-3" signature="javax.servlet.http.HttpServletRequest.getHeaders(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-4" signature="javax.servlet.http.HttpServletRequest.getHeaderNames()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-5" signature="javax.servlet.http.HttpServletRequest.getQueryString()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-6" signature="javax.servlet.http.HttpServletRequest.getParts()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-7" signature="javax.servlet.http.HttpServletRequest.getPart(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+    </sources>
+    <propagators>
+        <method id="java-net-url-1" signature="java.net.URL.<init>(java.lang.String, java.lang.String, int, java.lang.String)" source="P1|P2|P4" target="O"  enabled="true"/>
+        <method id="java-net-url-2" signature="java.net.URL.<init>(java.lang.String, java.lang.String, java.lang.String)" source="P1|P2|P3" target="O"  enabled="true"/>
+        <method id="java-net-url-3" signature="java.net.URL.<init>(java.lang.String, java.lang.String, int, java.lang.String, java.net.URLStreamHandler)" source="P1|P2|P4" target="O"  enabled="true"/>
+        <method id="java-net-url-4" signature="java.net.URL.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-url-5" signature="java.net.URL.<init>(java.net.URL, java.lang.String)" source="P2" target="O"  enabled="true"/>
+        <method id="java-net-url-6" signature="java.net.URL.<init>(java.net.URL, java.lang.String, java.net.URLStreamHandler)" source="P2" target="O"  enabled="true"/>
+        <method id="apache-httpclient-1" signature="org.apache.http.client.methods.HttpGet.<init>(java.net.URI)" source="P1" target="O"  enabled="true"/>
+        <method id="apache-httpclient-2" signature="org.apache.http.client.methods.HttpGet.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-uri-1" signature="java.net.URI.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-uri-2" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String)" source="P3|P4|P5" target="O"  enabled="true"/>
+        <method id="java-net-uri-4" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)" source="P2|P3" target="O"  enabled="true"/>
+        <method id="java-net-uri-5" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String)" source="" target="O"  enabled="true"/>
+        <method id="java-net-uri-6" signature="java.net.URI.create(java.lang.String)" source="P1" target="O"  enabled="true"/>
+    </propagators>
+    <rules>
+        <rule level="medium" id="ssrf" enabled="true">
+            <name>Server Side Request Forgery</name>
+            <events>
+                <event id="java-net-url-7" enabled="true">
+                    <method signature="java.net.URL.openConnection()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="java-net-url-8" enabled="true">
+                    <method signature="java.net.URL.openConnection(java.net.Proxy)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="java-net-url-9" enabled="true">
+                    <method signature="java.net.URL.openStream()"/>
+                    <object tracked="true"/>
+                </event>
+            </events>
+        </rule>
+    </rules>
+</policies>

@@ -29,4 +29,6 @@ public interface CommandExecService {
      */
     String level3(String cmd);
 
+    String level4(String cmd);
+
 }

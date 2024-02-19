@@ -1,15 +1,1212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <policies>
     <sources>
-        <method id="" type="" signature="" target="" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getInputStream()" target="R" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getParameter(java.lang.String)" target="R" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterNames()" target="R" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterValues(java.lang.String)" target="R" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getParameterMap()" target="R" inherit="subclasses" tags=""/>
-        <method id="" type="" signature="javax.servlet.ServletRequest.getReader()" target="R" inherit="subclasses" tags=""/>
+        <method id="spring-get-arg-1" signature="org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(org.springframework.core.MethodParameter, org.springframework.web.method.support.ModelAndViewContainer, org.springframework.web.context.request.NativeWebRequest, org.springframework.web.bind.support.WebDataBinderFactory)"  target="R"  enabled="true"/>
+        <!-- httpservlet获取入参 -->
+        <method id="servletrequest-1" signature="javax.servlet.ServletRequest.getInputStream()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-2" signature="javax.servlet.ServletRequest.getParameter(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-3" signature="javax.servlet.ServletRequest.getParameterNames()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-4" signature="javax.servlet.ServletRequest.getParameterValues(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-5" signature="javax.servlet.ServletRequest.getParameterMap()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="servletrequest-6" signature="javax.servlet.ServletRequest.getReader()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-1" signature="javax.servlet.http.HttpServletRequest.getCookies()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-2" signature="javax.servlet.http.HttpServletRequest.getHeader(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-3" signature="javax.servlet.http.HttpServletRequest.getHeaders(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-4" signature="javax.servlet.http.HttpServletRequest.getHeaderNames()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-5" signature="javax.servlet.http.HttpServletRequest.getQueryString()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-6" signature="javax.servlet.http.HttpServletRequest.getParts()"  target="R" inherit="subclasses" enabled="true"/>
+        <method id="httpservletrequest-7" signature="javax.servlet.http.HttpServletRequest.getPart(java.lang.String)"  target="R" inherit="subclasses" enabled="true"/>
     </sources>
     <propagators>
-
+        <method id="jdbc-statement-19" signature="java.sql.Statement.addBatch(java.lang.String)" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-1" signature="java.sql.Connection.prepareStatement(java.lang.String)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-2" signature="java.sql.Connection.prepareCall(java.lang.String)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-3" signature="java.sql.Connection.nativeSQL(java.lang.String)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-4" signature="java.sql.Connection.prepareStatement(java.lang.String, int, int)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-5" signature="java.sql.Connection.prepareCall(java.lang.String, int, int)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-6" signature="java.sql.Connection.prepareStatement(java.lang.String, int, int, int)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-7" signature="java.sql.Connection.prepareCall(java.lang.String, int, int, int)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-8" signature="java.sql.Connection.prepareStatement(java.lang.String, int)" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-9" signature="java.sql.Connection.prepareStatement(java.lang.String, int[])" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <method id="jdbc-connection-10" signature="java.sql.Connection.prepareStatement(java.lang.String, java.lang.String[])" source="P1" target="R" inherit="subclasses" enabled="true"/>
+        <!-- url传播 -->
+        <method id="java-net-url-1" signature="java.net.URL.<init>(java.lang.String, java.lang.String, int, java.lang.String)" source="P1|P2|P4" target="O"  enabled="true"/>
+        <method id="java-net-url-2" signature="java.net.URL.<init>(java.lang.String, java.lang.String, java.lang.String)" source="P1|P2|P3" target="O"  enabled="true"/>
+        <method id="java-net-url-3" signature="java.net.URL.<init>(java.lang.String, java.lang.String, int, java.lang.String, java.net.URLStreamHandler)" source="P1|P2|P4" target="O"  enabled="true"/>
+        <method id="java-net-url-4" signature="java.net.URL.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-url-5" signature="java.net.URL.<init>(java.net.URL, java.lang.String)" source="P2" target="O"  enabled="true"/>
+        <method id="java-net-url-6" signature="java.net.URL.<init>(java.net.URL, java.lang.String, java.net.URLStreamHandler)" source="P2" target="O"  enabled="true"/>
+        <method id="apache-httpclient-1" signature="org.apache.http.client.methods.HttpGet.<init>(java.net.URI)" source="P1" target="O"  enabled="true"/>
+        <method id="apache-httpclient-2" signature="org.apache.http.client.methods.HttpGet.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-uri-1" signature="java.net.URI.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="java-net-uri-2" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String, java.lang.String, java.lang.String)" source="P3|P4|P5" target="O"  enabled="true"/>
+        <method id="java-net-uri-4" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)" source="P2|P3" target="O"  enabled="true"/>
+        <method id="java-net-uri-5" signature="java.net.URI.<init>(java.lang.String, java.lang.String, java.lang.String)" source="" target="O"  enabled="true"/>
+        <method id="java-net-uri-6" signature="java.net.URI.create(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="apache-httpclient-11" signature="org.apache.http.client.methods.HttpRequestBase.setURI(java.net.URI)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="okhttp3-1" signature="okhttp3.Request$Builder.<init>(okhttp3.Request)" source="P1" target="O"  enabled="true"/>
+        <method id="okhttp3-2" signature="okhttp3.Request$Builder.url(okhttp3.HttpUrl)" source="P1" target="R"  enabled="true"/>
+        <method id="okhttp3-3" signature="okhttp3.Request$Builder.url(java.lang.String)" source="P1" target="R"  enabled="true"/>
+        <method id="okhttp3-4" signature="okhttp3.Request$Builder.url(java.net.URL)" source="P1" target="R"  enabled="true"/>
+        <method id="okhttp3-5" signature="okhttp3.Request$Builder.build()" source="O" target="O"  enabled="true"/>
+        <method id="okhttp3-6" signature="okhttp3.OkHttpClient.newCall(okhttp3.Request)" source="O" target="R"  enabled="true"/>
+        <method id="okhttp3-8" signature="okhttp3.RealCall.<init>(okhttp3.OkHttpClient, okhttp3.Request, boolean)" source="P2" target="O"  enabled="true"/>
+        <method id="okhttp3-9" signature="okhttp3.RealCall.newRealCall(okhttp3.OkHttpClient, okhttp3.Request, boolean)" source="P2" target="R"  enabled="true"/>
+        <method id="okhttp3-12" signature="okhttp3.HttpUrl.parse(java.lang.String)" source="P1" target="R"  enabled="true"/>
+        <method id="okhttp3-13" signature="okhttp3.HttpUrl$Builder.parse(okhttp3.HttpUrl, java.lang.String)" source="P2" target="O"  enabled="true"/>
+        <method id="okhttp3-14" signature="okhttp3.HttpUrl$Builder.build()" source="O" target="R"  enabled="true"/>
+        <method id="apache-httpclient5-1" signature="org.apache.hc.client5.http.classic.methods.HttpUriRequestBase.<init>(java.lang.String, java.net.URI)" source="P2" target="O" inherit="all" enabled="true"/>
+        <method id="apache-httpclient5-3" signature="org.apache.hc.core5.http.message.BasicHttpRequest.setUri(java.net.URI)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="okhttp-1" signature="com.squareup.okhttp.Request$Builder.url(com.squareup.okhttp.HttpUrl)" source="P1" target="O"  enabled="true"/>
+        <method id="okhttp-2" signature="com.squareup.okhttp.Request$Builder.build()" source="O" target="O"  enabled="true"/>
+        <method id="okhttp-3" signature="com.squareup.okhttp.Call.<init>(com.squareup.okhttp.OkHttpClient, com.squareup.okhttp.Request)" source="P2" target="O"  enabled="true"/>
+        <method id="okhttp-6" signature="com.squareup.okhttp.HttpUrl.parse(java.lang.String)" source="P1" target="R"  enabled="true"/>
+        <method id="okhttp-7" signature="com.squareup.okhttp.HttpUrl$Builder.parse(com.squareup.okhttp.HttpUrl, java.lang.String)" source="P2" target="O"  enabled="true"/>
+        <method id="okhttp-8" signature="com.squareup.okhttp.HttpUrl$Builder.build()" source="O" target="R"  enabled="true"/>
+        <!-- 命令执行传播 -->
+        <method id="processbuilder-1" signature="java.lang.ProcessBuilder.<init>(java.util.List)" source="P1" target="O"  enabled="true"/>
+        <method id="processbuilder-2" signature="java.lang.ProcessBuilder.<init>(java.lang.String[])" source="P1" target="O"  enabled="true"/>
+        <method id="processbuilder-3" signature="java.lang.ProcessBuilder.command(java.util.List)" source="P1" target="R"  enabled="true"/>
+        <method id="processbuilder-4" signature="java.lang.ProcessBuilder.command(java.lang.String[])" source="P1" target="R"  enabled="true"/>
+        <method id="processbuilder-6" signature="java.lang.ProcessBuilder.environment(java.lang.String[])" source="P1" target="R"  enabled="true"/>
+        <!-- 反序列化传播 -->
+        <method id="" signature="java.io.FileInputStream.<init>(java.lang.String)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="" signature="java.io.FileInputStream.<init>(java.io.File)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="" signature="java.io.InputStream.<init>(java.io.InputStream)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="" signature="java.io.InputStream.read(byte[])" source="O" target="P1" inherit="all" enabled="true"/>
+        <method id="" signature="java.io.InputStream.read(byte[], int, int)" source="O" target="P1" inherit="all" enabled="true"/>
+        <method id="" signature="java.io.ObjectInputStream.<init>(java.io.InputStream)" source="P1" target="O" inherit="all" enabled="true"/>
+        <!-- 正则传播 -->
+        <method id="regex-1" signature="java.util.regex.compile(java.lang.String)" source="P1" target="R"  enabled="true"/>
+        <method id="regex-2" signature="java.util.regex.compile(java.lang.String, int)" source="P1" target="R"  enabled="true"/>
+        <!-- part传播 -->
+        <method id="http-part-1" signature="javax.servlet.http.Part.getInputStream()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-2" signature="javax.servlet.http.Part.getContentType()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-3" signature="javax.servlet.http.Part.getName()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-4" signature="javax.servlet.http.Part.getSubmittedFileName()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-5" signature="javax.servlet.http.Part.getHeader(java.lang.String)" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-6" signature="javax.servlet.http.Part.getHeaders(java.lang.String)" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="http-part-7" signature="javax.servlet.http.Part.getHeaderNames()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <!-- string传播 -->
+        <method id="string-1" signature="java.lang.String.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="string-2" signature="java.lang.String.<init>(char[])" source="P1" target="O"  enabled="true"/>
+        <method id="string-3" signature="java.lang.String.<init>(char[], int, int)" source="P1" target="O"  enabled="true"/>
+        <method id="string-4" signature="java.lang.String.<init>(int[], int, int)" source="P1" target="O"  enabled="true"/>
+        <method id="string-5" signature="java.lang.String.<init>(byte[], int, int, int)" source="P1" target="O"  enabled="true"/>
+        <method id="string-6" signature="java.lang.String.<init>(byte[], int)" source="P1" target="O"  enabled="true"/>
+        <method id="string-7" signature="java.lang.String.<init>(byte[], int, int, java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="string-8" signature="java.lang.String.<init>(byte[], int, int, java.nio.charset.Charset)" source="P1" target="O"  enabled="true"/>
+        <method id="string-9" signature="java.lang.String.<init>(byte[], java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="string-10" signature="java.lang.String.<init>(byte[], java.nio.charset.Charset)" source="P1" target="O"  enabled="true"/>
+        <method id="string-11" signature="java.lang.String.<init>(byte[], int, int)" source="P1" target="O"  enabled="true"/>
+        <method id="string-12" signature="java.lang.String.<init>(byte[])" source="P1" target="O"  enabled="true"/>
+        <method id="string-13" signature="java.lang.String.<init>(java.lang.StringBuffer)" source="P1" target="O"  enabled="true"/>
+        <method id="string-14" signature="java.lang.String.<init>(java.lang.StringBuilder)" source="P1" target="O"  enabled="true"/>
+        <method id="string-15" signature="java.lang.String.<init>(char[], boolean)" source="P1" target="O"  enabled="true"/>
+        <method id="string-16" signature="java.lang.String.getChars(char[], int)" source="O" target="P1"  enabled="true"/>
+        <method id="string-17" signature="java.lang.String.getChars(int, int, char[], int)" source="O" target="P3"  enabled="true"/>
+        <method id="string-18" signature="java.lang.String.getBytes(int, int, byte[], int)" source="O" target="P3"  enabled="true"/>
+        <method id="string-19" signature="java.lang.String.getBytes(java.lang.String)" source="O" target="R"  enabled="true"/>
+        <method id="string-20" signature="java.lang.String.getBytes(java.nio.charset.Charset)" source="O" target="R"  enabled="true"/>
+        <method id="string-21" signature="java.lang.String.getBytes()" source="O" target="R"  enabled="true"/>
+        <method id="string-22" signature="java.lang.String.substring(int)" source="O" target="R"  enabled="true"/>
+        <method id="string-23" signature="java.lang.String.substring(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="string-24" signature="java.lang.String.subSequence(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="string-25" signature="java.lang.String.concat(java.lang.String)" source="O|P1" target="R"  enabled="true"/>
+        <method id="string-26" signature="java.lang.String.replace(char, char)" source="O" target="R"  enabled="true"/>
+        <method id="string-27" signature="java.lang.String.replaceFirst(java.lang.String, java.lang.String)" source="O" target="R"  enabled="true"/>
+        <method id="string-28" signature="java.lang.String.replaceAll(java.lang.String, java.lang.String)" source="O" target="R"  enabled="true"/>
+        <method id="string-29" signature="java.lang.String.replace(java.lang.CharSequence, java.lang.CharSequence)" source="O" target="R"  enabled="true"/>
+        <method id="string-30" signature="java.lang.String.split(java.lang.String, int)" source="O" target="R"  enabled="true"/>
+        <method id="string-31" signature="java.lang.String.split(java.lang.String)" source="O" target="R"  enabled="true"/>
+        <method id="string-32" signature="java.lang.String.join(java.lang.CharSequence, java.lang.CharSequence[])" source="P2" target="R"  enabled="true"/>
+        <method id="string-33" signature="java.lang.String.join(java.lang.CharSequence, java.lang.Iterable)" source="P2" target="R"  enabled="true"/>
+        <method id="string-34" signature="java.lang.String.toLowerCase(java.util.Locale)" source="O" target="R"  enabled="true"/>
+        <method id="string-35" signature="java.lang.String.toLowerCase()" source="O" target="R"  enabled="true"/>
+        <method id="string-36" signature="java.lang.String.toUpperCase(java.util.Locale)" source="O" target="R"  enabled="true"/>
+        <method id="string-37" signature="java.lang.String.toUpperCase()" source="O" target="R"  enabled="true"/>
+        <method id="string-38" signature="java.lang.String.trim()" source="O" target="R"  enabled="true"/>
+        <method id="string-39" signature="java.lang.String.toString()" source="O" target="R"  enabled="true"/>
+        <method id="string-40" signature="java.lang.String.toCharArray()" source="O" target="R"  enabled="true"/>
+        <method id="string-41" signature="java.lang.String.format(java.lang.String, java.lang.Object[])" source="P1|P2" target="R"  enabled="true"/>
+        <method id="string-42" signature="java.lang.String.format(java.util.Locale, java.lang.String, java.lang.Object[])" source="P2|P3" target="R"  enabled="true"/>
+        <!-- string buffer传播-->
+        <method id="stringbuffer-1" signature="java.lang.StringBuffer.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="stringbuffer-2" signature="java.lang.StringBuffer.<init>(java.lang.CharSequence)" source="P1" target="O"  enabled="true"/>
+        <method id="stringbuffer-3" signature="java.lang.StringBuffer.getChars(int, int, char[], int)" source="O" target="P3"  enabled="true"/>
+        <method id="stringbuffer-4" signature="java.lang.StringBuffer.append(java.lang.Object)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-5" signature="java.lang.StringBuffer.append(java.lang.String)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-6" signature="java.lang.StringBuffer.append(java.lang.StringBuffer)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-7" signature="java.lang.StringBuffer.append(java.lang.AbstractStringBuilder)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-8" signature="java.lang.StringBuffer.append(java.lang.CharSequence)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-9" signature="java.lang.StringBuffer.append(java.lang.CharSequence, int, int)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-10" signature="java.lang.StringBuffer.append(char[])" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-11" signature="java.lang.StringBuffer.append(char[], int, int)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuffer-12" signature="java.lang.StringBuffer.append(boolean)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-13" signature="java.lang.StringBuffer.append(char)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-14" signature="java.lang.StringBuffer.append(int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-15" signature="java.lang.StringBuffer.append(long)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-16" signature="java.lang.StringBuffer.append(float)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-17" signature="java.lang.StringBuffer.append(double)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-18" signature="java.lang.StringBuffer.delete(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-19" signature="java.lang.StringBuffer.deleteCharAt(int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-20" signature="java.lang.StringBuffer.replace(int, int, java.lang.String)" source="O|P3" target="R"  enabled="true"/>
+        <method id="stringbuffer-21" signature="java.lang.StringBuffer.substring(int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-22" signature="java.lang.StringBuffer.subSequence(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-23" signature="java.lang.StringBuffer.substring(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-24" signature="java.lang.StringBuffer.insert(int, char[], int, int)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-25" signature="java.lang.StringBuffer.insert(int, java.lang.Object)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-26" signature="java.lang.StringBuffer.insert(int, java.lang.String)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-27" signature="java.lang.StringBuffer.insert(int, char[])" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-28" signature="java.lang.StringBuffer.insert(int, java.lang.CharSequence)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-29" signature="java.lang.StringBuffer.insert(int, java.lang.CharSequence, int, int)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuffer-30" signature="java.lang.StringBuffer.insert(int, boolean)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-31" signature="java.lang.StringBuffer.insert(int, char)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-32" signature="java.lang.StringBuffer.insert(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-33" signature="java.lang.StringBuffer.insert(int, long)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-34" signature="java.lang.StringBuffer.insert(int, float)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-35" signature="java.lang.StringBuffer.insert(int, double)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-36" signature="java.lang.StringBuffer.reverse()" source="O" target="R"  enabled="true"/>
+        <method id="stringbuffer-37" signature="java.lang.StringBuffer.toString()" source="O" target="R"  enabled="true"/>
+        <!-- string builder 传播-->
+        <method id="stringbuilder-1" signature="java.lang.StringBuilder.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="stringbuilder-2" signature="java.lang.StringBuilder.<init>(java.lang.CharSequence)" source="P1" target="O"  enabled="true"/>
+        <method id="stringbuilder-3" signature="java.lang.StringBuilder.append(java.lang.Object)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-4" signature="java.lang.StringBuilder.append(java.lang.String)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-5" signature="java.lang.StringBuilder.append(java.lang.StringBuffer)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-6" signature="java.lang.StringBuilder.append(java.lang.CharSequence)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-7" signature="java.lang.StringBuilder.append(java.lang.CharSequence, int, int)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-8" signature="java.lang.StringBuilder.append(char[])" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-9" signature="java.lang.StringBuilder.append(char[], int, int)" source="O|P1" target="R"  enabled="true"/>
+        <method id="stringbuilder-10" signature="java.lang.StringBuilder.append(boolean)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-11" signature="java.lang.StringBuilder.append(char)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-12" signature="java.lang.StringBuilder.append(int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-13" signature="java.lang.StringBuilder.append(long)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-14" signature="java.lang.StringBuilder.append(float)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-15" signature="java.lang.StringBuilder.append(double)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-16" signature="java.lang.StringBuilder.appendCodePoint(int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-17" signature="java.lang.StringBuilder.delete(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-18" signature="java.lang.StringBuilder.deleteCharAt(int);" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-19" signature="java.lang.StringBuilder.replace(int, int, java.lang.String)" source="O|P3" target="R"  enabled="true"/>
+        <method id="stringbuilder-20" signature="java.lang.StringBuilder.insert(int, char[], int, int)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-21" signature="java.lang.StringBuilder.insert(int, java.lang.Object)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-22" signature="java.lang.StringBuilder.insert(int, java.lang.String)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-23" signature="java.lang.StringBuilder.insert(int, char[])" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-24" signature="java.lang.StringBuilder.insert(int, java.lang.CharSequence)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-25" signature="java.lang.StringBuilder.insert(int, java.lang.CharSequence, int, int)" source="O|P2" target="R"  enabled="true"/>
+        <method id="stringbuilder-26" signature="java.lang.StringBuilder.insert(int, boolean)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-27" signature="java.lang.StringBuilder.insert(int, char)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-28" signature="java.lang.StringBuilder.insert(int, int)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-29" signature="java.lang.StringBuilder.insert(int, long)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-30" signature="java.lang.StringBuilder.insert(int, float)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-31" signature="java.lang.StringBuilder.insert(int, double)" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-32" signature="java.lang.StringBuilder.reverse()" source="O" target="R"  enabled="true"/>
+        <method id="stringbuilder-33" signature="java.lang.StringBuilder.toString()" source="O" target="R"  enabled="true"/>
+        <!-- list传播 -->
+        <method id="list-1" signature="java.util.List.toArray()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="list-2" signature="java.util.List.toArray(java.lang.Object[])" source="O" target="P1" inherit="subclasses" enabled="true"/>
+        <method id="list-3" signature="java.util.List.add(java.lang.Object)" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <method id="list-4" signature="java.util.List.addAll(java.util.Collection)" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <method id="list-5" signature="java.util.List.addAll(int, java.util.Collection)" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <method id="list-6" signature="java.util.List.get(int)" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="list-7" signature="java.util.List.set(int, java.lang.Object)" source="P2" target="O" inherit="subclasses" enabled="true"/>
+        <method id="list-8" signature="java.util.List.add(int, java.lang.Object)" source="P2" target="O" inherit="subclasses" enabled="true"/>
+        <method id="list-9" signature="java.util.List.subList(int, int)" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <!-- arrays 传播 -->
+        <method id="arrays-1" signature="java.util.Arrays.asList(java.lang.Object[])" source="P1" target="R"  enabled="true"/>
+        <!-- map 传播 -->
+        <method id="map-1" signature="java.util.Map.get(java.lang.Object)" source="O&amp;R" target="R" inherit="subclasses" enabled="true"/>
+        <method id="map-2" signature="java.util.Map.put(java.lang.Object, java.lang.Object)" source="P1|P2" target="O" inherit="subclasses" enabled="true"/>
+        <method id="map-3" signature="java.util.Map.putAll(java.util.Map)" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <method id="map-4" signature="java.util.Map.keySet()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="map-5" signature="java.util.Map.values()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="map-6" signature="java.util.Map.entrySet()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <method id="map-7" signature="java.util.Map.getOrDefault(java.lang.Object, java.lang.Object)" source="O&amp;R" target="R" inherit="subclasses" enabled="true"/>
+        <!-- enumeration 传播 -->
+        <method id="enumeration-1" signature="java.util.Enumeration.nextElement()" source="O" target="R" inherit="subclasses" enabled="true"/>
+        <!-- iterator 传播 -->
+        <method id="iterator-1" signature="java.util.Iterator.next()" source="O&amp;R" target="R" inherit="subclasses" enabled="true"/>
+        <!-- socket传播-->
+        <method id="" signature="java.net.Socket.<init>(java.lang.String, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.net.Socket.<init>(java.lang.String, int, java.net.InetAddress, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.net.Socket.<init>(java.lang.String, int, boolean)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.net.Socket.getInputStream()" source="P1" target="R"  enabled="true"/>
+        <!-- reader传播 -->
+        <method id="" signature="java.io.StringReader.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.BufferedReader.<init>(java.io.Reader, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.BufferedReader.<init>(java.io.Reader)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.CharArrayReader.<init>(char[])" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.CharArrayReader.<init>(char[], int, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.InputStreamReader.<init>(java.io.InputStream)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.InputStreamReader.<init>(java.io.InputStream, java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.InputStreamReader.<init>(java.io.InputStream, java.nio.charset.Charset)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.InputStreamReader.<init>(java.io.InputStream, java.nio.charset.CharsetDecoder)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.FilterReader.<init>(java.io.Reader)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.PipedReader.<init>(java.io.PipedWriter)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.PipedReader.<init>(java.io.PipedWriter, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.PushbackReader.<init>(java.io.Reader, int)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.PushbackReader.<init>(java.io.Reader)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.FileReader.<init>(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="" signature="java.io.FileReader.<init>(java.io.File)" source="P1" target="O"  enabled="true"/>
+        <!-- xmldecoder传播 -->
+        <method id="xmldecoder-2" signature="java.beans.XMLDecoder.java.beans.XMLDecoder(java.io.InputStream)" source="P1" target="O"  enabled="true"/>
+        <method id="xmldecoder-3" signature="java.beans.XMLDecoder.java.beans.XMLDecoder(java.io.InputStream, java.lang.Object)" source="P1" target="O"  enabled="true"/>
+        <method id="xmldecoder-4" signature="java.beans.XMLDecoder.java.beans.XMLDecoder(java.io.InputStream, java.lang.Object, java.beans.ExceptionListener)" source="P1" target="O"  enabled="true"/>
+        <!-- bson传播 -->
+        <method id="bson-document-1" signature="org.bson.Document.parse(java.lang.String)" source="P1" target="O"  enabled="true"/>
+        <method id="bson-document-2" signature="org.bson.Document.parse(java.lang.String, org.bson.codecs.Decoder)" source="P1" target="O"  enabled="true"/>
+        <method id="bson-document-3" signature="org.bson.Document.<init>(java.lang.String, java.lang.Object)" source="P1&amp;P2" target="O"  enabled="true"/>
+        <method id="bson-document-4" signature="org.bson.Document.<init>(java.util.Map)" source="P1" target="O"  enabled="true"/>
+        <method id="bson-document-5" signature="org.bson.Document.append(java.lang.String, java.lang.Object)" source="P1&amp;P2" target="R"  enabled="true"/>
+        <method id="bson-bsonobject-2" signature="org.bson.BasicBSONObject.<init>(java.lang.String, java.lang.Object)" source="P1&amp;P2" target="O" inherit="all" enabled="true"/>
+        <method id="bson-bsonobject-3" signature="org.bson.BasicBSONObject.<init>(java.util.Map)" source="P1" target="O" inherit="all" enabled="true"/>
+        <method id="bson-bsonobject-4" signature="org.bson.BasicBSONObject.append(java.lang.String, java.lang.Object)" source="P1&amp;P2" target="R" inherit="all" enabled="true"/>
+        <method id="bsondocument-1" signature="org.bson.BsonDocument.<init>(java.lang.String, org.bson.BsonValue)" source="P1&amp;P2" target="O" inherit="all" enabled="true"/>
+        <method id="bsondocument-2" signature="org.bson.BsonDocument.append(java.lang.String, org.bson.BsonValue)" source="P1&amp;P2" target="R" inherit="all" enabled="true"/>
+        <method id="bsonvalue-1" signature="org.bson.BsonValue.<init>" source="P1" target="O" inherit="subclasses" enabled="true"/>
+        <!-- hql传播 -->
+        <method id="hibernate-criteria-1" signature="org.hibernate.criterion.Restrictions.sqlRestriction(java.lang.String, java.lang.Object[], org.hibernate.type.Type[])" source="P1" target="R"  enabled="true"/>
+        <method id="hibernate-criteria-2" signature="org.hibernate.criterion.Restrictions.sqlRestriction(java.lang.String, java.lang.Object, org.hibernate.type.Type)" source="P1" target="R"  enabled="true"/>
+        <method id="hibernate-criteria-3" signature="org.hibernate.criterion.Restrictions.sqlRestriction(java.lang.String)" source="P1" target="R"  enabled="true"/>
     </propagators>
+    <rules>
+        <rule level="high" id="sqli" enabled="true">
+            <name>SQL Injection</name>
+            <events>
+                <event id="jdbctemplate-1" enabled="true">
+                    <method signature="org.springframework.jdbc.core.JdbcTemplate.execute(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbctemplate-2" enabled="true">
+                    <method signature="org.springframework.jdbc.core.JdbcTemplate.execute(org.springframework.jdbc.core.StatementCallback)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbctemplate-3" enabled="true">
+                    <method signature="org.springframework.jdbc.core.JdbcTemplate.execute(org.springframework.jdbc.core.StatementCallback, boolean)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="mysql-cj-1" enabled="true">
+                    <method signature="com.mysql.cj.NativeSession.execSQL(com.mysql.cj.Query, java.lang.String, int, com.mysql.cj.protocol.a.NativePacketPayload, boolean, com.mysql.cj.protocol.ProtocolEntityFactory, com.mysql.cj.protocol.ColumnDefinition, boolean);"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-1" enabled="true">
+                    <method signature="java.sql.Statement.executeQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-2" enabled="true">
+                    <method signature="java.sql.Statement.executeUpdate(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-3" enabled="true">
+                    <method signature="java.sql.Statement.execute(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-4" enabled="true">
+                    <method signature="java.sql.Statement.executeBatch()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-statement-5" enabled="true">
+                    <method signature="java.sql.Statement.executeUpdate(java.lang.String, int)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-6" enabled="true">
+                    <method signature="java.sql.Statement.executeUpdate(java.lang.String, int[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-7" enabled="true">
+                    <method signature="java.sql.Statement.executeUpdate(java.lang.String, java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-8" enabled="true">
+                    <method signature="java.sql.Statement.execute(java.lang.String, int)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-9" enabled="true">
+                    <method signature="java.sql.Statement.execute(java.lang.String, int[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-10" enabled="true">
+                    <method signature="java.sql.Statement.execute(java.lang.String, java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-11" enabled="true">
+                    <method signature="java.sql.Statement.executeLargeBatch()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-statement-12" enabled="true">
+                    <method signature="java.sql.Statement.executeLargeUpdate(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-13" enabled="true">
+                    <method signature="java.sql.Statement.executeLargeUpdate(java.lang.String, int)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-14" enabled="true">
+                    <method signature="java.sql.Statement.executeLargeUpdate(java.lang.String, int[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-15" enabled="true">
+                    <method signature="java.sql.Statement.executeLargeUpdate(java.lang.String, java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-16" enabled="true">
+                    <method signature="java.sql.Statement.executeUpdateInternal(String sql, boolean isBatch, boolean returnGeneratedKeys)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-17" enabled="true">
+                    <method signature="java.sql.Statement.executeInternal(String sql, boolean returnGeneratedKeys)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="jdbc-statement-18" enabled="true">
+                    <method signature="java.sql.Statement.executeBatchInternal()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-preparedstatement-1" enabled="true">
+                    <method signature="java.sql.PreparedStatement.executeQuery()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-preparedstatement-2" enabled="true">
+                    <method signature="java.sql.PreparedStatement.executeUpdate()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-preparedstatement-3" enabled="true">
+                    <method signature="java.sql.PreparedStatement.execute()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="jdbc-preparedstatement-4" enabled="true">
+                    <method signature="java.sql.PreparedStatement.executeLargeUpdate()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="hibernate-query-1" enabled="true">
+                    <method signature="org.hibernate.query.QueryProducer.createSQLQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-query-2" enabled="true">
+                    <method signature="org.hibernate.query.QueryProducer.createNativeQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-query-3" enabled="true">
+                    <method signature="org.hibernate.query.QueryProducer.createNativeQuery(java.lang.String, java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-query-4" enabled="true">
+                    <method signature="org.hibernate.query.QueryProducer.createNativeQuery(java.lang.String, java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-session-1" enabled="true">
+                    <method signature="org.hibernate.Session.createSQLQuery(java.lang.String,java.lang.String,java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-session-2" enabled="true">
+                    <method signature="org.hibernate.Session.createSQLQuery(java.lang.String,java.lang.String[],java.lang.Class[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-session-3" enabled="true">
+                    <method signature="org.hibernate.Session.createSQLQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="medium" id="ssrf" enabled="true">
+            <name>Server Side Request Forgery</name>
+            <disallowed-tags>
+                <tag></tag>
+            </disallowed-tags>
+            <events>
+                <event id="java-net-url-7" enabled="true">
+                    <method signature="java.net.URL.openConnection()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="java-net-url-8" enabled="true">
+                    <method signature="java.net.URL.openConnection(java.net.Proxy)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="java-net-url-9" enabled="true">
+                    <method signature="java.net.URL.openStream()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="apache-httpclient-3" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.client.methods.HttpUriRequest)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-4" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.client.methods.HttpUriRequest, org.apache.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-5" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.HttpHost, org.apache.http.HttpRequest)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-6" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.HttpHost, org.apache.http.HttpRequest, org.apache.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-7" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.client.methods.HttpUriRequest, org.apache.http.client.ResponseHandler)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-8" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.client.methods.HttpUriRequest, org.apache.http.client.ResponseHandler, org.apache.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-9" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.HttpHost, org.apache.http.HttpRequest, org.apache.http.client.ResponseHandler)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-10" enabled="true">
+                    <method signature="org.apache.http.client.HttpClient.execute(org.apache.http.HttpHost, org.apache.http.HttpRequest, org.apache.http.client.ResponseHandler, org.apache.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="apache-httpclient-10" enabled="true">
+                    <method signature="org.apache.http.protocol.HttpRequestExecutor.execute(org.apache.http.HttpRequest, org.apache.http.HttpClientConnection, org.apache.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="okhttp3-10" enabled="true">
+                    <method signature="okhttp3.RealCall.execute()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="okhttp3-11" enabled="true">
+                    <method signature="okhttp3.RealCall.enqueue(okhttp3.Callback)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="apache-httpclient5-2" enabled="true">
+                    <method signature="org.apache.hc.client5.http.impl.classic.CloseableHttpClient.doExecute(org.apache.hc.core5.http.HttpHost, org.apache.hc.core5.http.ClassicHttpRequest, org.apache.hc.core5.http.protocol.HttpContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="okhttp-4" enabled="true">
+                    <method signature="com.squareup.okhttp.Call.execute()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="okhttp-5" enabled="true">
+                    <method signature="com.squareup.okhttp.Call.enqueue(com.squareup.okhttp.Callback, boolean)"/>
+                    <object tracked="true"/>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="cmd-exec" enabled="true">
+            <name>Command Execution</name>
+            <events>
+                <event id="java-lang-runtime-1" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-2" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String, java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="or">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-3" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String, java.lang.String[], java.io.File)"/>
+                    <object tracked="false"/>
+                    <params mode="or">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-4" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-5" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String[], java.lang.String[])"/>
+                    <object tracked="false"/>
+                    <params mode="or">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-6" enabled="true">
+                    <method signature="java.lang.Runtime.exec(java.lang.String[], java.lang.String[], java.io.File)"/>
+                    <object tracked="false"/>
+                    <params mode="or">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-7" enabled="true">
+                    <method signature="java.lang.Runtime.load0(java.lang.Class, java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="java-lang-runtime-8" enabled="true">
+                    <method signature="java.lang.Runtime.loadLibrary0(java.lang.Class, java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="processbuilder-5" enabled="true">
+                    <method signature="java.lang.ProcessBuilder.start()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="processimpl-1" enabled="true">
+                    <method signature="java.lang.ProcessImpl.start(java.lang.String[], java.util.Map, java.lang.String, java.lang.ProcessBuilder$Redirect[], boolean)"/>
+                    <object tracked="false"/>
+                    <params mode="or">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="deser" enabled="true">
+            <name>Unsafe Deserialization</name>
+            <events>
+                <event id="objectinputstream-readobject" enabled="true">
+                    <method signature="java.io.ObjectInputStream.readObject()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="objectinputstream-readunshared" enabled="true">
+                    <method signature="java.io.ObjectInputStream.readUnshared()"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="objectinput-readobject" enabled="true">
+                    <method signature="java.io.ObjectInput.readObject()"/>
+                    <object tracked="true"/>
+                </event>
+            </events>
+        </rule>
+        <rule level="medium" id="unsafe-reflection" enabled="true">
+            <name>Unsafe Reflection</name>
+            <events>
+                <event id="class-forname-1" enabled="true">
+                    <method signature="java.lang.Class.forName(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="class-forname-2" enabled="true">
+                    <method signature="java.lang.Class.forName(java.lang.String, boolean, java.lang.ClassLoader)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="medium" id="http-header-injection" enabled="true">
+            <name>HTTP Header Injection</name>
+            <events>
+                <event id="http-setheader" enabled="true">
+                    <method signature="javax.servlet.http.HttpServletResponse.setHeader(java.lang.String,java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="http-addheader" enabled="true">
+                    <method signature="javax.servlet.http.HttpServletResponse.addHeader(java.lang.String,java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="medium" id="re-dos" enabled="true">
+            <name>Regex DoS</name>
+            <events>
+                <event id="regex-3" enabled="true">
+                    <method signature="java.util.regex.matcher(java.lang.CharSequence)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="regex-4" enabled="true">
+                    <method signature="jregex.Pattern.matcher(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="medium" id="script-eval" enabled="true">
+            <name>Script Execution</name>
+            <events>
+                <event id="script-engine-1" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.lang.String, javax.script.ScriptContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="script-engine-2" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.io.Reader, javax.script.ScriptContext)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="script-engine-3" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="script-engine-4" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.io.Reader)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="script-engine-5" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.lang.String, javax.script.Bindings)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="script-engine-6" enabled="true">
+                    <method signature="javax.script.ScriptEngine.eval(java.io.Reader, javax.script.Bindings)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="xmldecoder-deser" enabled="true">
+            <name>XmlDecoder Deserialization</name>
+            <events>
+                <event id="xmldecoder-1" enabled="true">
+                    <method signature="java.beans.XMLDecoder.readObject()"/>
+                    <object tracked="true"/>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="jndi-injection" enabled="true">
+            <name>JNDI Injection</name>
+            <events>
+                <event id="context-lookup-1" enabled="true">
+                    <method signature="javax.naming.Context.lookup(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="nosql-injection" enabled="true">
+            <name>NoSQL Injection</name>
+            <events>
+                <event id="bson-jsonreader-1" enabled="true">
+                    <method signature="org.bson.json.JsonReader.<init>(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-json-parse-1" enabled="true">
+                    <method signature="com.mongodb.util.JSON.parse(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-json-parse-2" enabled="true">
+                    <method signature="com.mongodb.util.JSON.parse(java.lang.String, org.bson.BSONCallback)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="bson-bsonobject-1" enabled="true">
+                    <method signature="org.bson.BSONObject.put(java.lang.String, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-1" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(org.bson.conversions.Bson)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-2" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(org.bson.conversions.Bson, com.mongodb.ReadPreference)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-3" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(org.bson.conversions.Bson, java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-4" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(org.bson.conversions.Bson, com.mongodb.ReadPreference, java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-5" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(com.mongodb.client.ClientSession, org.bson.conversions.Bson)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-6" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(com.mongodb.client.ClientSession, org.bson.conversions.Bson, com.mongodb.ReadPreference)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-7" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(com.mongodb.client.ClientSession, org.bson.conversions.Bson, java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="mongo-runcommand-8" enabled="true">
+                    <method signature="com.mongodb.client.MongoDatabase.runCommand(com.mongodb.client.ClientSession, org.bson.conversions.Bson, com.mongodb.ReadPreference, java.lang.Class)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="fastjson" enabled="true">
+            <name>Fastjson Deserialization</name>
+            <events>
+                <event id="fastjson-1" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-2" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(java.lang.String, int)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-3" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(byte[], com.alibaba.fastjson.parser.Feature[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-4" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(byte[], int, int, java.nio.charset.CharsetDecoder, com.alibaba.fastjson.parser.Feature[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-5" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(byte[], int, int, java.nio.charset.CharsetDecoder, int)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-6" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parse(java.lang.String, com.alibaba.fastjson.parser.Feature[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-7" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parseObject(java.lang.String, com.alibaba.fastjson.parser.Feature[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-8" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parseObject(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="fastjson-9" enabled="true">
+                    <method signature="com.alibaba.fastjson.JSON.parseArray(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="xstream" enabled="true">
+            <name>Xstream Deserialization</name>
+            <events>
+                <event id="xstream-1" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-2" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.Reader)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-3" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.InputStream)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-4" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.net.URL)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-5" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.File)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-6" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.lang.String, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-7" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.Reader, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-8" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.net.URL, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-9" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.File, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-10" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.fromXML(java.io.InputStream, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-11" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.unmarshal(com.thoughtworks.xstream.io.HierarchicalStreamReader)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-12" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.unmarshal(com.thoughtworks.xstream.io.HierarchicalStreamReader, java.lang.Object)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="xstream-13" enabled="true">
+                    <method signature="com.thoughtworks.xstream.XStream.unmarshal(com.thoughtworks.xstream.io.HierarchicalStreamReader, java.lang.Object, com.thoughtworks.xstream.converters.DataHolder)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="high" id="hql-injection" enabled="true">
+            <name>HQL Injection</name>
+            <events>
+                <event id="javax-persistence-1" enabled="true">
+                    <method signature="javax.persistence.EntityManager.createQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="javax-persistence-2" enabled="true">
+                    <method signature="javax.persistence.EntityManager.createQuery(java.lang.String, java.lang.Class<T>)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-1" enabled="true">
+                    <method signature="org.hibernate.SharedSessionContract.createQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-2" enabled="true">
+                    <method signature="org.hibernate.internal.SessionImpl.createFilter(java.lang.Object, java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-3" enabled="true">
+                    <method signature="org.hibernate.Session.createFilter(java.lang.Object,java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-4" enabled="true">
+                    <method signature="org.hibernate.Session.createQuery(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-criteria-4" enabled="true">
+                    <method signature="org.hibernate.Criteria.add(org.hibernate.criterion.Criterion)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-5" enabled="true">
+                    <method signature="org.hibernate.Session.delete(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-6" enabled="true">
+                    <method signature="org.hibernate.Session.delete(java.lang.String,java.lang.Object,org.hibernate.type.Type)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-7" enabled="true">
+                    <method signature="org.hibernate.Session.delete(java.lang.String,java.lang.Object[],org.hibernate.type.Type[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-8" enabled="true">
+                    <method signature="org.hibernate.Session.filter(java.lang.Object,java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-9" enabled="true">
+                    <method signature="org.hibernate.Session.filter(java.lang.Object,java.lang.String,java.lang.Object,org.hibernate.type.Type)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-10" enabled="true">
+                    <method signature="org.hibernate.Session.filter(java.lang.Object,java.lang.String,java.lang.Object[],org.hibernate.type.Type[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="2" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-11" enabled="true">
+                    <method signature="org.hibernate.Session.find(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-12" enabled="true">
+                    <method signature="org.hibernate.Session.find(java.lang.String,java.lang.Object,org.hibernate.type.Type)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-13" enabled="true">
+                    <method signature="org.hibernate.Session.find(java.lang.String,java.lang.Object[],org.hibernate.type.Type[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-14" enabled="true">
+                    <method signature="org.hibernate.Session.iterate(java.lang.String)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-15" enabled="true">
+                    <method signature="org.hibernate.Session.iterate(java.lang.String,java.lang.Object,org.hibernate.type.Type)"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+                <event id="hibernate-16" enabled="true">
+                    <method signature="org.hibernate.Session.iterate(java.lang.String,java.lang.Object[],org.hibernate.type.Type[])"/>
+                    <object tracked="false"/>
+                    <params mode="and">
+                        <param index="1" required-tags="untrusted" tracked="true"/>
+                    </params>
+                </event>
+            </events>
+        </rule>
+        <rule level="low" id="unsafe-readline" enabled="true">
+            <name>Unsafe Readline</name>
+            <events>
+                <event id="readline-1" enabled="true">
+                    <method signature="java.io.BufferedReader.readLine(boolean)"/>
+                    <object tracked="true"/>
+                </event>
+                <event id="readline-2" enabled="true">
+                    <method signature="java.io.BufferedReader.readLine()"/>
+                    <object tracked="true"/>
+                </event>
+            </events>
+        </rule>
+    </rules>
 </policies>

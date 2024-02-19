@@ -20,6 +20,7 @@ public class SSRFController {
 
     @RequestMapping("/level1")
     public String level1(String p){
+        new String("123");
         return ssrfService.level1(p);
     }
 

@@ -1,5 +1,6 @@
 package cn.bestsec.vulweb.service.impl;
 
+import antlr.StringUtils;
 import cn.bestsec.vulweb.service.CommandExecService;
 import org.apache.commons.exec.*;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author hjxin
@@ -83,5 +86,21 @@ public class CommandExecServiceImpl implements CommandExecService {
         } catch (IOException e) {
             return e.toString();
         }
+    }
+
+    @Override
+    public String level4(String cmd) {
+        List argList = new ArrayList<String>();
+        argList.add("cmd.exe");
+        argList.add("/c");
+        argList.add("ping 666.48o8ka.dnslog.cn");
+//        argList.add(";ping 666.48o8ka.dnslog.cn");
+        ProcessBuilder processBuilder = new ProcessBuilder(argList);
+        try {
+            processBuilder.start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return "123";
     }
 }

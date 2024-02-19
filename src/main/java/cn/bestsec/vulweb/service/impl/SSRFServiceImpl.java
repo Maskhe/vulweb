@@ -31,20 +31,12 @@ import java.util.HashMap;
 
 @Service
 public class SSRFServiceImpl implements SSRFService {
-    public String source(String url){
-        return url;
-    }
-    public void evil(String url){
-        System.out.println(url);
-    }
     @Override
     public String level1(String url){
         /*
         HttpURLConnection
          */
         try{
-            url = source(url);
-            evil(source(url));
             URL uri = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) uri.openConnection();
             connection.setRequestMethod("GET");
@@ -61,6 +53,7 @@ public class SSRFServiceImpl implements SSRFService {
                 }
                 return response.toString();
             }
+            System.out.println("123" + "test");
             return "状态码异常！";
         }catch(Exception e){
             return e.getMessage();

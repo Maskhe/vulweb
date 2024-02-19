@@ -1,6 +1,7 @@
 package cn.bestsec.vulweb.service.impl;
 
 import cn.bestsec.vulweb.service.XMLDecoderVul;
+import cn.bestsec.vulweb.test.Person;
 import org.springframework.stereotype.Service;
 
 import java.beans.XMLDecoder;
@@ -18,8 +19,10 @@ public class XMLDecoderVulImpl implements XMLDecoderVul {
     @Override
     public String parse(String document) {
         InputStream inputStream = new ByteArrayInputStream(document.getBytes(StandardCharsets.UTF_8));
+        System.out.println(document);
         XMLDecoder xmlDecoder = new XMLDecoder(inputStream);
-        xmlDecoder.readObject();
+        Person person = (Person)xmlDecoder.readObject();
+        System.out.println(person.getName());
         xmlDecoder.close();
         return "xmldecoder反序列化执行！";
     }

@@ -17,6 +17,7 @@ public class XStreamVulServiceImpl implements XStreamVulService {
     public String fromXML(String xml) {
         try {
             XStream xStream = new XStream();
+            XStream.setupDefaultSecurity(xStream);
             xStream.fromXML(xml);
         } catch (Exception ignored) {
 

@@ -14,4 +14,6 @@ public interface HQLInjectionService {
      */
     String createQuery(String p);
 
+    String createCriteria(String p);
+
 }

@@ -19,7 +19,6 @@ public class ReDosServiceImpl implements ReDosService {
 
         // 输入字符串，包含大量的 'a'
 //        String input = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaX";
-
         // 匹配正则表达式
         try {
             Pattern pattern = Pattern.compile(maliciousRegex);

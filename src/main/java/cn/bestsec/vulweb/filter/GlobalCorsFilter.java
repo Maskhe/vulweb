@@ -1,12 +1,6 @@
 //package cn.bestsec.vulweb.filter;
 //
-//import org.apache.catalina.filters.CorsFilter;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
 //import org.springframework.stereotype.Component;
-//import org.springframework.web.cors.CorsConfiguration;
-//import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-//
 //import javax.servlet.*;
 //import javax.servlet.http.HttpServletResponse;
 //import java.io.IOException;

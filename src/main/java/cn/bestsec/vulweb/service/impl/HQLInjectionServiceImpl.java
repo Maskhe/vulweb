@@ -3,10 +3,14 @@ package cn.bestsec.vulweb.service.impl;
 import cn.bestsec.vulweb.entity.BookDO;
 import cn.bestsec.vulweb.service.HQLInjectionService;
 import org.apache.hc.client5.http.auth.AuthStateCacheable;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +41,16 @@ public class HQLInjectionServiceImpl implements HQLInjectionService {
             transaction.commit();
             session.close();
             return books.toString();
+        }
+    }
+
+    @Override
+    public String createCriteria(String p) {
+        try ( Session session = entityManagerFactory.unwrap(SessionFactory.class).openSession()) {
+            Criteria criteria = session.createCriteria(BookDO.class);
+            criteria.add(Restrictions.sqlRestriction("book_name=\"" + p + "\""));
+            List list = criteria.list();
+            return list.toString();
         }
     }
 }
