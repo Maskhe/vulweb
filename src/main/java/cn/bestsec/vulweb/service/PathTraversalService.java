@@ -63,4 +63,6 @@ public interface PathTraversalService {
      * payload: 主机上任意当前用户有权限访问路径，测试时注意不要传入重要文件路径，防止文件内容被覆盖
      */
     String level6(String path);
+
+    String level7(String path, String file);
 }

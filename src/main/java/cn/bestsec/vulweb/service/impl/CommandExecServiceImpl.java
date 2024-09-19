@@ -1,6 +1,6 @@
 package cn.bestsec.vulweb.service.impl;
 
-import antlr.StringUtils;
+//import antlr.StringUtils;
 import cn.bestsec.vulweb.service.CommandExecService;
 import org.apache.commons.exec.*;
 import org.springframework.stereotype.Service;
@@ -22,11 +22,11 @@ import java.util.List;
 @Service
 public class CommandExecServiceImpl implements CommandExecService {
     @Override
-    public String level1(String cmd) {
+    public String level1(String cmd, String[] env) {
 
         try {
             String newLine = System.getProperty("line.separator");
-            Process process = Runtime.getRuntime().exec(cmd);
+            Process process = Runtime.getRuntime().exec(cmd, env);
             process.waitFor();
             BufferedReader bf = new BufferedReader(new InputStreamReader(process.getInputStream(), "GBK"));
             String line;
@@ -93,8 +93,7 @@ public class CommandExecServiceImpl implements CommandExecService {
         List argList = new ArrayList<String>();
         argList.add("cmd.exe");
         argList.add("/c");
-        argList.add("ping 666.48o8ka.dnslog.cn");
-//        argList.add(";ping 666.48o8ka.dnslog.cn");
+        argList.add(cmd);
         ProcessBuilder processBuilder = new ProcessBuilder(argList);
         try {
             processBuilder.start();

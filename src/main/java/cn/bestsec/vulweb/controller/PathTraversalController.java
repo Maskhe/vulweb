@@ -45,4 +45,9 @@ public class PathTraversalController {
     public String level6(String p){
         return pathTraversalService.level6(p);
     }
+
+    @RequestMapping("/level7")
+    public String level7(String p, String d) {
+        return pathTraversalService.level7(p, d);
+    }
 }

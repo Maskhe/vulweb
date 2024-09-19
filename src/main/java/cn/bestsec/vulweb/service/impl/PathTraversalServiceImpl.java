@@ -114,5 +114,10 @@ public class PathTraversalServiceImpl implements PathTraversalService {
         return "内容成功写入" + path;
     }
 
-
+    public String level7(String path, String file) {
+        String[] parms = file.split("|");
+        String filename = String.format(path + "file%s", file);
+        File test  = new File(path, filename);
+        return "123";
+    }
 }

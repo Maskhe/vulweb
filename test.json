@@ -1,0 +1,223 @@
+[
+  {
+    "version": "0.0.1-SNAPSHOT",
+    "name": "cn.bestsec:vulweb",
+    "from": [
+      "cn.bestsec:vulweb@0.0.1-SNAPSHOT"
+    ],
+    "dependencies": {
+      "org.springframework.boot:spring-boot-starter-jdbc": {
+        "version": "2.7.17",
+        "name": "org.springframework.boot:spring-boot-starter-jdbc",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.springframework.boot:spring-boot-starter-jdbc@2.7.17"
+        ],
+        "dependencies": {}
+      },
+      "org.springframework.boot:spring-boot-starter-data-jpa": {
+        "version": "2.7.17",
+        "name": "org.springframework.boot:spring-boot-starter-data-jpa",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.springframework.boot:spring-boot-starter-data-jpa@2.7.17"
+        ],
+        "dependencies": {}
+      },
+      "org.springframework.boot:spring-boot-starter-web": {
+        "version": "2.7.17",
+        "name": "org.springframework.boot:spring-boot-starter-web",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.springframework.boot:spring-boot-starter-web@2.7.17"
+        ],
+        "dependencies": {}
+      },
+      "org.mybatis.spring.boot:mybatis-spring-boot-starter": {
+        "version": "2.2.0",
+        "name": "org.mybatis.spring.boot:mybatis-spring-boot-starter",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.mybatis.spring.boot:mybatis-spring-boot-starter@2.2.0"
+        ],
+        "dependencies": {}
+      },
+      "org.springframework.boot:spring-boot-devtools": {
+        "version": "2.7.17",
+        "name": "org.springframework.boot:spring-boot-devtools",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.springframework.boot:spring-boot-devtools@2.7.17"
+        ],
+        "dependencies": {}
+      },
+      "com.mysql:mysql-connector-j": {
+        "version": "8.0.33",
+        "name": "com.mysql:mysql-connector-j",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.mysql:mysql-connector-j@8.0.33"
+        ],
+        "dependencies": {}
+      },
+      "org.projectlombok:lombok": {
+        "version": "1.18.30",
+        "name": "org.projectlombok:lombok",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.projectlombok:lombok@1.18.30"
+        ],
+        "dependencies": {}
+      },
+      "com.squareup.okhttp3:okhttp": {
+        "version": "3.14.9",
+        "name": "com.squareup.okhttp3:okhttp",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.squareup.okhttp3:okhttp@3.14.9"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.httpcomponents:httpclient": {
+        "version": "4.5.14",
+        "name": "org.apache.httpcomponents:httpclient",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.httpcomponents:httpclient@4.5.14"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.httpcomponents.client5:httpclient5": {
+        "version": "5.1.3",
+        "name": "org.apache.httpcomponents.client5:httpclient5",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.httpcomponents.client5:httpclient5@5.1.3"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.httpcomponents.client5:httpclient5-fluent": {
+        "version": "5.1.3",
+        "name": "org.apache.httpcomponents.client5:httpclient5-fluent",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.httpcomponents.client5:httpclient5-fluent@5.1.3"
+        ],
+        "dependencies": {}
+      },
+      "com.squareup.okhttp:okhttp": {
+        "version": "2.7.5",
+        "name": "com.squareup.okhttp:okhttp",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.squareup.okhttp:okhttp@2.7.5"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.commons:commons-exec": {
+        "version": "1.3",
+        "name": "org.apache.commons:commons-exec",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.commons:commons-exec@1.3"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.logging.log4j:log4j-nosql": {
+        "version": "2.9.1",
+        "name": "org.apache.logging.log4j:log4j-nosql",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.logging.log4j:log4j-nosql@2.9.1"
+        ],
+        "dependencies": {}
+      },
+      "com.alibaba:fastjson": {
+        "version": "1.2.24",
+        "name": "com.alibaba:fastjson",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.alibaba:fastjson@1.2.24"
+        ],
+        "dependencies": {}
+      },
+      "com.thoughtworks.xstream:xstream": {
+        "version": "1.4.10",
+        "name": "com.thoughtworks.xstream:xstream",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.thoughtworks.xstream:xstream@1.4.10"
+        ],
+        "dependencies": {}
+      },
+      "com.github.jsqlparser:jsqlparser": {
+        "version": "4.6",
+        "name": "com.github.jsqlparser:jsqlparser",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "com.github.jsqlparser:jsqlparser@4.6"
+        ],
+        "dependencies": {}
+      },
+      "org.springframework.boot:spring-boot-starter-data-mongodb": {
+        "version": "2.7.17",
+        "name": "org.springframework.boot:spring-boot-starter-data-mongodb",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.springframework.boot:spring-boot-starter-data-mongodb@2.7.17"
+        ],
+        "dependencies": {}
+      },
+      "commons-io:commons-io": {
+        "version": "2.15.1",
+        "name": "commons-io:commons-io",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "commons-io:commons-io@2.15.1"
+        ],
+        "dependencies": {}
+      },
+      "io.springfox:springfox-swagger2": {
+        "version": "2.8.0",
+        "name": "io.springfox:springfox-swagger2",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "io.springfox:springfox-swagger2@2.8.0"
+        ],
+        "dependencies": {}
+      },
+      "io.springfox:springfox-swagger-ui": {
+        "version": "2.8.0",
+        "name": "io.springfox:springfox-swagger-ui",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "io.springfox:springfox-swagger-ui@2.8.0"
+        ],
+        "dependencies": {}
+      },
+      "org.apache.logging.log4j:log4j-core": {
+        "version": "2.17.0",
+        "name": "org.apache.logging.log4j:log4j-core",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.apache.logging.log4j:log4j-core@2.17.0"
+        ],
+        "dependencies": {}
+      },
+      "org.cyclonedx:cyclonedx-maven-plugin": {
+        "version": "2.8.0",
+        "name": "org.cyclonedx:cyclonedx-maven-plugin",
+        "from": [
+          "cn.bestsec:vulweb@0.0.1-SNAPSHOT",
+          "org.cyclonedx:cyclonedx-maven-plugin@2.8.0"
+        ],
+        "dependencies": {}
+      }
+    },
+    "parent": {
+      "name": "org.springframework.boot:spring-boot-starter-parent",
+      "version": "2.7.17"
+    },
+    "modules": []
+  }
+]

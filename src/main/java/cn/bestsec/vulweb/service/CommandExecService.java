@@ -13,7 +13,7 @@ public interface CommandExecService {
      * @param cmd 命令
      * @return 命令执行结果
      */
-    String level1(String cmd);
+    String level1(String cmd, String[] env);
 
     /**
      * ProcessBuilder执行命令并获取结果

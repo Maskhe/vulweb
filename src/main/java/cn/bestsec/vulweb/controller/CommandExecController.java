@@ -5,7 +5,11 @@ import cn.bestsec.vulweb.service.CommandExecService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Stream;
+
+import org.apache.logging.log4j.*;
 
 /**
  * @author hjxin
@@ -20,12 +24,17 @@ public class CommandExecController {
         this.commandExecService = commandExecService;
     }
     @RequestMapping("/level1")
-    public String level1(String p){
-        HashMap hashMap1 = new HashMap<>();
-        hashMap1.put("test", p);
-        HashMap hashMap2 = new HashMap<>();
-        hashMap2.putAll(hashMap1);
-        return commandExecService.level1(p);
+    public String level1(String p, String d){
+//        Stream.of(Thread.currentThread().getStackTrace()).forEach(System.out::println);
+//        HashMap hashMap1 = new HashMap<>();
+//        hashMap1.put("test", p);
+//        HashMap hashMap2 = new HashMap<>();
+//        hashMap2.putAll(hashMap1);
+        ArrayList<String> arr1 = new ArrayList<>();
+        arr1.add(d);
+        Object[] env = arr1.toArray();
+        String[] arr = new String[] {d};
+        return commandExecService.level1("ipconfig", arr);
     }
 
     @RequestMapping("/level2")
