@@ -25,7 +25,17 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           # 认证并测试当前项目
-          snyk test --severity-threshold=medium
-          
-          # 将项目依赖快照上传至 Snyk 仪表盘进行持续监控（可选）
-          snyk monitor
+          snyk code test
+
+      - name: Run Snyk and output SARIF
+        uses: snyk/actions/node@master
+        continue-on-error: true # 确保即使发现漏洞，后续的上传步骤也能继续执行
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk.sarif
