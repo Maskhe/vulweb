@@ -1,0 +1,31 @@
+name: Custom Snyk CLI Scan
+
+on: [push]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. 安装你的项目运行环境（如 Node）
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 2. 安装 Snyk CLI 工具
+      - name: Install Snyk CLI
+        uses: snyk/actions/setup@master
+
+      # 3. 通过原生的 Snyk CLI 命令进行扫描
+      - name: Snyk Test & Monitor
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          # 认证并测试当前项目
+          snyk test --severity-threshold=medium
+          
+          # 将项目依赖快照上传至 Snyk 仪表盘进行持续监控（可选）
+          snyk monitor
