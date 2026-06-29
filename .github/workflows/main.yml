@@ -1,41 +1,48 @@
-name: Custom Snyk CLI Scan
+name: Snyk Security Scan and Code Scanning Integration
 
-on: [push]
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+# 必须显式配置权限，允许工作流向 GitHub Security 页面写入 SARIF 结果
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
-  security:
+  snyk-scan:
     runs-on: ubuntu-latest
     steps:
+      # 1. 检出代码
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. 安装你的项目运行环境（如 Node）
+      # 2. 安装项目依赖的语言环境（以 Node.js 为例，请根据实际项目替换，如 Python、Java 等）
+      # 注：Snyk 扫描依赖文件（如 package-lock.json/pom.xml），有些语言可能需要先执行安装/构建才能准确扫描
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 2. 安装 Snyk CLI 工具
+      # 3. 安装 Snyk CLI 工具
       - name: Install Snyk CLI
         uses: snyk/actions/setup@master
 
-      # 3. 通过原生的 Snyk CLI 命令进行扫描
-      - name: Snyk Test & Monitor
+      # 4. 使用 Snyk CLI 执行测试并输出 SARIF 格式报告
+      # 使用 continue-on-error: true 是关键！
+      # 因为当 Snyk 发现漏洞时会默认返回非 0 退出码导致 CI 熔断，我们需要确保即使发现漏洞，后续的上传步骤也能继续
+      - name: Run Snyk Test and Output SARIF
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true 
         run: |
-          # 认证并测试当前项目
-          snyk code test
+          snyk test --sarif-file-output=snyk.sarif
 
-      - name: Run Snyk and output SARIF
-        uses: snyk/actions/node@master
-        continue-on-error: true # 确保即使发现漏洞，后续的上传步骤也能继续执行
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --sarif-file-output=snyk.sarif
-
-      - name: Upload result to GitHub Code Scanning
+      # 5. 将 SARIF 报告上传至 GitHub Security 页面
+      # 这一步会解析 snyk.sarif 并将结果呈现在 仓库的 Security -> Code scanning 标签页中
+      - name: Upload Snyk report to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
