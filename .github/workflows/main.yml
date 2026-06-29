@@ -38,7 +38,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true 
         run: |
-          snyk test --sarif-file-output=snyk.sarif
+          snyk code test --sarif-file-output=snyk.sarif
 
       # 5. 将 SARIF 报告上传至 GitHub Security 页面
       # 这一步会解析 snyk.sarif 并将结果呈现在 仓库的 Security -> Code scanning 标签页中
