@@ -34,6 +34,8 @@ jobs:
       # 使用 continue-on-error: true 是关键！
       # 因为当 Snyk 发现漏洞时会默认返回非 0 退出码导致 CI 熔断，我们需要确保即使发现漏洞，后续的上传步骤也能继续
       - name: Run Snyk Test and Output SARIF
+        env:
+            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true 
         run: |
           snyk code test --sarif-file-output=snyk.sarif
