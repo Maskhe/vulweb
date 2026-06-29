@@ -5,6 +5,5 @@ import java.io.IOException;
 public class CmdTest {
     public static void main(String[] args) throws IOException {
         Runtime.getRuntime().exec(args[1]);
-        Runtime.getRuntime().exec(args[2]);
     }
 }
