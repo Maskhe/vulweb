@@ -33,22 +33,121 @@ jobs:
       # 4. 使用 Snyk CLI 执行测试并输出 SARIF 格式报告
       # 使用 continue-on-error: true 是关键！
       # 因为当 Snyk 发现漏洞时会默认返回非 0 退出码导致 CI 熔断，我们需要确保即使发现漏洞，后续的上传步骤也能继续
-      - name: Run Snyk Test and Output SARIF
-        env:
-            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true 
-        run: |
-          snyk code test --sarif-file-output=snyk.sarif
+      # - name: Run Snyk Test and Output SARIF
+      #  env:
+      #      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #  continue-on-error: true 
+      #  run: |
+      #    snyk code test --sarif-file-output=snyk.sarif
 
+      # 4. 运行 Snyk 扫描并输出标准的 JSON 报告
+      - name: Run Snyk and Output JSON
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true # 确保即使有漏洞，后续的钉钉通知也能正常发送
+        run: |
+          snyk code test --json-file-output=snyk_result.json
+      # 5. 解析 JSON 报告，并使用 Python 进行加签推送
+      - name: Parse Results & Send Signed DingTalk Notification
+        env:
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRETS }}
+        shell: bash
+        run: |
+          if [ ! -f snyk_result.json ]; then
+            echo "Snyk 未成功生成报告"
+            exit 1
+          fi
+
+          # 提取漏洞数据给 Python 使用
+          TOTAL_VULNS=$(jq '.uniqueCount' snyk_result.json)
+          PROJECT_NAME=$(jq -r '.projectName' snyk_result.json)
+          
+          if [ "$TOTAL_VULNS" -eq "0" ]; then
+            STATUS="🟢 安全 (Passed)"
+            TEXT_MSG="🎉 祝贺！当前项目未检测出安全漏洞。"
+          else
+            STATUS="🔴 风险 (Failed)"
+            TEXT_MSG="⚠️ 注意：检测到项目存在 **$TOTAL_VULNS** 个依赖项漏洞，请尽快修复！"
+          fi
+
+          # 导出环境变量供 Python 读取，避免字符串拼接漏洞
+          export TEXT_MSG STATUS PROJECT_NAME TOTAL_VULNS
+          export GITHUB_REF_NAME="${{ github.ref_name }}"
+          export GITHUB_ACTOR="${{ github.actor }}"
+          export GITHUB_RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          # 使用 Python 脚本完成【加签】并发送请求
+          python3 - << 'EOF'
+          import os
+          import time
+          import hmac
+          import hashlib
+          import base64
+          import urllib.parse
+          import json
+          import urllib.request
+
+          # 1. 从环境变量获取数据
+          webhook = os.environ['DINGTALK_WEBHOOK']
+          secret = os.environ['DINGTALK_SECRET']
+          
+          # 2. 钉钉加签核心算法
+          timestamp = str(round(time.time() * 1000))
+          secret_enc = secret.encode('utf-8')
+          string_to_sign = f'{timestamp}\n{secret}'
+          string_to_sign_enc = string_to_sign.encode('utf-8')
+          hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+          sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+
+          # 3. 拼接带有签名和时间戳的完整 URL
+          signed_url = f"{webhook}&timestamp={timestamp}&sign={sign}"
+
+          # 4. 组装 Markdown 消息体
+          markdown_text = (
+              f"### 🛡️ Snyk 代码安全扫描报告 (加签认证)\n\n"
+              f"---\n\n"
+              f"- **项目名称**: {os.environ['PROJECT_NAME']}\n"
+              f"- **扫描分支**: {os.environ['GITHUB_REF_NAME']}\n"
+              f"- **触发人员**: {os.environ['GITHUB_ACTOR']}\n"
+              f"- **安全状态**: {os.environ['STATUS']} \n\n"
+              f"{os.environ['TEXT_MSG']}\n\n"
+              f"---\n\n"
+              f"🔗 [查看 GitHub Actions 运行详情]({os.environ['GITHUB_RUN_URL']})"
+          )
+
+          payload = {
+              "msgtype": "markdown",
+              "markdown": {
+                  "title": "【Snyk 安全扫描通知】",
+                  "text": markdown_text
+              }
+          }
+
+          # 5. 发送 POST 请求
+          req = urllib.request.Request(
+              signed_url, 
+              data=json.dumps(payload).encode('utf-8'), 
+              headers={'Content-Type': 'application/json'}
+          )
+          try:
+              with urllib.request.urlopen(req) as response:
+                  print("钉钉服务器响应:", response.read().decode('utf-8'))
+          except Exception as e:
+              print("发送失败，请检查密钥或网络状态:", e)
+              exit(1)
+          EOF
+
+          
       # 5. 将 SARIF 报告上传至 GitHub Security 页面
       # 这一步会解析 snyk.sarif 并将结果呈现在 仓库的 Security -> Code scanning 标签页中
-      - name: Upload Snyk report to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk.sarif
+      # - name: Upload Snyk report to GitHub Code Scanning
+        # uses: github/codeql-action/upload-sarif@v3
+        # with:
+          # sarif_file: snyk.sarif
 
-      - name: Upload Snyk Report as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: snyk-security-report
-          path: snyk.sarif # 或者你让 snyk 输出的 html 文件
+      # - name: Upload Snyk Report as Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: snyk-security-report
+      #     path: snyk.sarif # 或者你让 snyk 输出的 html 文件
