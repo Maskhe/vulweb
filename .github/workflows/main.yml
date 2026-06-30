@@ -59,13 +59,13 @@ jobs:
             exit 1
           fi
 
-          # 💡 关键修改：Snyk Code 的 JSON 结构中，总漏洞数存储在 .vulnerabilities 数组的长度中
-          TOTAL_VULNS=$(jq '.vulnerabilities | length' snyk_code_result.json)
+          # 💡 核心修改：利用 jq 的 map/select 提取每一层 run 下的 results 数组并进行统计
+          TOTAL_VULNS=$(jq '[.runs[].results[]] | length' snyk_code_result.json)
           
-          # 提取高危和中危漏洞数量（Snyk Code 主要分为 High, Medium, Low）
-          HIGH_COUNT=$(jq '[.vulnerabilities[] | select(.severity == "high")] | length' snyk_code_result.json)
-          MEDIUM_COUNT=$(jq '[.vulnerabilities[] | select(.severity == "medium")] | length' snyk_code_result.json)
-          LOW_COUNT=$(jq '[.vulnerabilities[] | select(.severity == "low")] | length' snyk_code_result.json)
+          # 统计各个等级的数量 (error, warning, note)
+          ERROR_COUNT=$(jq '[.runs[].results[] | select(.level == "error")] | length' snyk_code_result.json)
+          WARNING_COUNT=$(jq '[.runs[].results[] | select(.level == "warning")] | length' snyk_code_result.json)
+          NOTE_COUNT=$(jq '[.runs[].results[] | select(.level == "note")] | length' snyk_code_result.json)
           
           # 根据漏洞数量判断安全状态
           if [ "$TOTAL_VULNS" -eq "0" ]; then
@@ -73,7 +73,7 @@ jobs:
             TEXT_MSG="🎉 祝贺！当前源代码未检测出 SAST 安全漏洞。"
           else
             STATUS="🔴 源码风险 (Failed)"
-            TEXT_MSG="⚠️ 注意：源码中检测到 **$TOTAL_VULNS** 个安全隐患，请及时修复！\n- 🔴 **高危 (High)**: $HIGH_COUNT 个\n- 🟡 **中危 (Medium)**: $MEDIUM_COUNT 个\n- 🔵 **低危 (Low)**: $LOW_COUNT 个"
+            TEXT_MSG="⚠️ 注意：源码中检测到 **$TOTAL_VULNS** 个安全隐患，请及时修复！\n- 🔴 **错误 (Error/高危)**: $ERROR_COUNT 个\n- 🟡 **警告 (Warning/中危)**: $WARNING_COUNT 个\n- 🔵 **提示 (Note/低危)**: $NOTE_COUNT 个"
           fi
 
           # 导出环境变量供 Python 读取
