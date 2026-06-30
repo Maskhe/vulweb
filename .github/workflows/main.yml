@@ -51,7 +51,7 @@ jobs:
       - name: Parse Results & Send Signed DingTalk Notification
         env:
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
-          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRETS }}
         shell: bash
         run: |
           if [ ! -f snyk_code_result.json ]; then
