@@ -38,4 +38,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -DskipTests -Dsonar.projectKey=Maskhe_vulweb_917c8c69-7616-463d-a397-68821a2cf912 -Dsonar.projectName='vulweb'
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -DskipTests -Dsonar.projectKey=Maskhe_vulweb_fae7a66c-692a-446d-a466-17b280a1f708 -Dsonar.projectName='vulweb'
